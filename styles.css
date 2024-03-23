@@ -9,13 +9,13 @@ body {
 }
 
 .game-container {
-    position: relative; /* Add this line */
-    width: 100vw; /* Add this line */
-    height: 100vh; /* Add this line */
+    position: relative; 
+    width: 100vw; 
+    height: 100vh; 
     background-image: url('./game_images/homer_main_screen.jpeg');
-    background-size: contain; /* Adjust as needed */
-    background-repeat: no-repeat; /* Adjust as needed */
-    background-position: center; /* Adjust as needed */
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center;
 }
 
 
