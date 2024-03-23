@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.home-page { 
+    background-color: black;
+}
+
+.game-container {
+    position: relative; /* Add this line */
+    width: 100vw; /* Add this line */
+    height: 100vh; /* Add this line */
+    background-image: url('./game_images/homer_main_screen.jpeg');
+    background-size: contain; /* Adjust as needed */
+    background-repeat: no-repeat; /* Adjust as needed */
+    background-position: center; /* Adjust as needed */
+}
+
+
+#game-canvas {
+    display: none;
+}
+
+@keyframes neon-green {
+    0% {
+        background-color: white;
+    }
+    50% {
+        background-color: #00ff00; /* Neon green */
+    }
+    100% {
+        background-color: white;
+    }
+}
+
+#start-button {
+    position: absolute;
+    top: 80%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: white; /* Set initial background color */
+    animation: neon-green 1s infinite alternate;
+}
