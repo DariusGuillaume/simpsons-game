@@ -17,7 +17,9 @@ function startGame() {
     isGameStarted = true;
     startButton.style.display = 'none';
     canvas.style.display = 'block';
+    window.location.href = "game.html";
     // Initialize game objects and start the game loop
+
 }
 
 function handleKeyDown(event) {
