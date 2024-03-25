@@ -1,9 +1,27 @@
+import { updateGround } from "./ground.js";
+
 const GAME_WIDTH = 100; 
 const GAME_HEIGHT = 100;
 const gameStage = document.querySelector('[data-game]');
 
 setPixelToGameStage();
 window.addEventListener("resize", setPixelToGameStage)
+
+let lastTime  
+
+function update(time){
+    if(lastTime == null ){
+        lastTime = time;
+        window.requestAnimationFrame(update);
+        return;
+    }
+    const deltaTime = time - lastTime;
+    updateGround(deltaTime);
+
+    lastTime = time
+    window.requestAnimationFrame(update);
+}
+window.requestAnimationFrame(update);
 
 function setPixelToGameStage() {
     let gameToPixelScale 
@@ -16,3 +34,4 @@ function setPixelToGameStage() {
     gameStage.style.width = `${GAME_WIDTH*gameToPixelScale}px`;
     gameStage.style.height = `${GAME_HEIGHT*gameToPixelScale}px`;
 }
+
