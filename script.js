@@ -1,4 +1,4 @@
-import { updateGround } from "./ground.js";
+import { updateGround, setupGround } from "./ground.js";
 
 const GAME_WIDTH = 100; 
 const GAME_HEIGHT = 100;
@@ -6,6 +6,9 @@ const gameStage = document.querySelector('[data-game]');
 
 setPixelToGameStage();
 window.addEventListener("resize", setPixelToGameStage)
+
+
+setupGround() 
 
 let lastTime  
 
@@ -16,7 +19,7 @@ function update(time){
         return;
     }
     const deltaTime = time - lastTime;
-    updateGround(deltaTime);
+    updateGround(deltaTime,1);
 
     lastTime = time
     window.requestAnimationFrame(update);
