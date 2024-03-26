@@ -60,7 +60,7 @@ body {
     left:1%;
     height: 30%;
     bottom: calc(var(--bottom) * 1%);
-    background-image: url('./game_images/homer.png');
+    background-image: url('./game_images/characters/homer_sprite.png');
     
 }
 
@@ -102,7 +102,7 @@ body {
     left:calc(var(--left) * 1%);
 }
 
-.cactus{
+.obstacle{
     position: absolute;
     bottom: 0;
     left:calc(var(--left) * 1%);
@@ -110,7 +110,6 @@ body {
 }
 
 .game-body {
-    background-image: white;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

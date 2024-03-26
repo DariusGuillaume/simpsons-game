@@ -1,5 +1,6 @@
 import { updateGround, setupGround } from "./ground.js";
 import {updateCharacter,setUpCharacter} from "./character.js";
+import {updateObstacle,setupObstacle} from "./obstacle.js";
 
 const GAME_WIDTH = 100; 
 const GAME_HEIGHT = 100;
@@ -31,6 +32,7 @@ function update(time){
     updateGround(deltaTime,speedScale);
     updateCharacter(deltaTime,speedScale);
     updateSpeedScale(deltaTime)
+    updateObstacle(deltaTime,speedScale)
     updateScore(deltaTime)
 
     lastTime = time
@@ -53,6 +55,7 @@ function handleStart(){
     speedScale = 1 
     setupGround()
     setUpCharacter()
+    setupObstacle()
     startScreenElement.style.display = "none"
     window.requestAnimationFrame(update)
 } 
