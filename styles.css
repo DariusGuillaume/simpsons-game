@@ -108,3 +108,10 @@ body {
     left:calc(var(--left) * 1%);
     height: 20%;
 }
+
+.game-body {
+    background-image: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
