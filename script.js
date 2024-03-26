@@ -1,4 +1,5 @@
 import { updateGround, setupGround } from "./ground.js";
+import {updateCharacter,setUpCharacter} from "./character.js";
 
 const GAME_WIDTH = 100; 
 const GAME_HEIGHT = 100;
@@ -28,6 +29,7 @@ function update(time){
     }
     const deltaTime = time - lastTime;
     updateGround(deltaTime,speedScale);
+    updateCharacter(deltaTime,speedScale);
     updateSpeedScale(deltaTime)
     updateScore(deltaTime)
 
@@ -50,6 +52,7 @@ function handleStart(){
     score = 0
     speedScale = 1 
     setupGround()
+    setUpCharacter()
     startScreenElement.style.display = "none"
     window.requestAnimationFrame(update)
 } 
