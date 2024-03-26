@@ -2,15 +2,23 @@ import { updateGround, setupGround } from "./ground.js";
 
 const GAME_WIDTH = 100; 
 const GAME_HEIGHT = 100;
+const SPEEDSCALEINCREASE = 0.00001;
 const gameStage = document.querySelector('[data-game]');
+const scoreElement = document.querySelector('[data-score]');
+const startScreenElement = document.querySelector('[data-start-screen]');
 
 setPixelToGameStage();
 window.addEventListener("resize", setPixelToGameStage)
+document.addEventListener("keydown",handleStart,{once:true})
+ 
 
 
 setupGround() 
 
 let lastTime  
+let speedScale
+let score 
+
 
 function update(time){
     if(lastTime == null ){
@@ -19,12 +27,33 @@ function update(time){
         return;
     }
     const deltaTime = time - lastTime;
-    updateGround(deltaTime,1);
+    updateGround(deltaTime,speedScale);
+    updateSpeedScale(deltaTime)
+    updateScore(deltaTime)
 
     lastTime = time
     window.requestAnimationFrame(update);
 }
+
 window.requestAnimationFrame(update);
+
+function updateSpeedScale(deltaTime){ 
+    speedScale += deltaTime* SPEEDSCALEINCREASE
+}
+
+function updateScore (deltaTime,speedScale){ 
+    score += deltaTime * .01
+    scoreElement.textContent = Math.floor(score)
+}
+function handleStart(){ 
+    lastTime = null
+    score = 0
+    speedScale = 1 
+    setupGround()
+    startScreenElement.style.display = "none"
+    window.requestAnimationFrame(update)
+} 
+
 
 function setPixelToGameStage() {
     let gameToPixelScale 
