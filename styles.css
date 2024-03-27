@@ -61,6 +61,7 @@ body {
     position: absolute;
     left:1%;
     height: 30%;
+    width: 8%;
     bottom: calc(var(--bottom) * 1%);
     background-image: url('./game_images/characters/homer_sprite.png');
     
@@ -101,6 +102,7 @@ body {
     bottom: 0;
     left:calc(var(--left) * 1%);
     height: 15%;
+   
 }
 
 

@@ -2,9 +2,9 @@ import { getCustomProperty, incrementCustomProperty, setCustomProperty } from ".
 
 const characterElement = document.querySelector("[data-character]")
 const JUMPSPEED = 1.32
-const GRAVITY = .015
+const GRAVITY = .0096
 const CHARACTER_FRAME_COUNT =2
-const FRAME_TIME = 100
+const FRAME_TIME = 105
 
 
 let isJumping 
@@ -27,6 +27,15 @@ export function updateCharacter(deltaTime,speedScale){
     handleJump(deltaTime)
 }
 
+export function getCharacterRect(){
+    return characterElement.getBoundingClientRect()
+}
+
+export function setCharacterLost(){ 
+    characterElement.src = "./game_images/characters/homer_sprite_lose.png"
+
+}
+ 
 function handleRun(deltaTime,speedScale){
     if(isJumping) {
         characterElement.src = `game_images/characters/homer_sprite_jumping.png`

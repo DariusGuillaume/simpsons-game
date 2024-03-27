@@ -1,6 +1,6 @@
 import { updateGround, setupGround } from "./ground.js";
-import {updateCharacter,setUpCharacter} from "./character.js";
-import {updateObstacle,setupObstacle} from "./obstacle.js";
+import {updateCharacter,setUpCharacter,getCharacterRect,setCharacterLost} from "./character.js";
+import {updateObstacle,setupObstacle, getObstacleRect} from "./obstacle.js";
 
 const GAME_WIDTH = 100
 const GAME_HEIGHT = 100
@@ -35,6 +35,9 @@ function update(time){
     updateSpeedScale(deltaTime)
     
     updateScore(deltaTime)
+    if(checkLost()){
+       return handleLost()
+    }
 
     lastTime = time
     window.requestAnimationFrame(update);
@@ -57,11 +60,19 @@ function handleStart(){
     setupGround()
     setUpCharacter()
     setupObstacle()
-    startScreenElement.style.display = "none"
+    startScreenElement.classList.add("hide")
     window.requestAnimationFrame(update)
 } 
 
+function checkLost(){
+    const characterRect = getCharacterRect()
+    return getObstacleRect().some(rect => isColliding(rect, characterRect))
+}
 
+function isColliding(rect1,rect2){
+    return rect1.left < rect2.right && rect1.right > rect2.left && rect1.top < rect2.bottom && rect1.bottom > rect2.top
+
+}
 function setPixelToGameStage() {
     let gameToPixelScale 
     if(window.innerWidth/window.innerHeight < GAME_WIDTH/GAME_HEIGHT) {
@@ -74,3 +85,10 @@ function setPixelToGameStage() {
     gameStage.style.height = `${GAME_HEIGHT*gameToPixelScale}px`;
 }
 
+function handleLost(){
+ setCharacterLost()
+ setTimeout(() => {
+     document.addEventListener("keydown",handleStart,{once:true})
+        startScreenElement.classList.remove("hide") 
+ }, 100)
+}
