@@ -2,14 +2,14 @@ import { updateGround, setupGround } from "./ground.js";
 import {updateCharacter,setUpCharacter} from "./character.js";
 import {updateObstacle,setupObstacle} from "./obstacle.js";
 
-const GAME_WIDTH = 100; 
-const GAME_HEIGHT = 100;
-const SPEEDSCALEINCREASE = 0.00001;
-const gameStage = document.querySelector('[data-game]');
-const scoreElement = document.querySelector('[data-score]');
-const startScreenElement = document.querySelector('[data-start-screen]');
+const GAME_WIDTH = 100
+const GAME_HEIGHT = 100
+const SPEEDSCALEINCREASE = 0.00001
+const gameStage = document.querySelector('[data-game]')
+const scoreElement = document.querySelector('[data-score]')
+const startScreenElement = document.querySelector('[data-start-screen]')
 
-setPixelToGameStage();
+setPixelToGameStage()
 window.addEventListener("resize", setPixelToGameStage)
 document.addEventListener("keydown",handleStart,{once:true})
  
@@ -28,11 +28,12 @@ function update(time){
         window.requestAnimationFrame(update);
         return;
     }
-    const deltaTime = time - lastTime;
-    updateGround(deltaTime,speedScale);
-    updateCharacter(deltaTime,speedScale);
-    updateSpeedScale(deltaTime)
+    const deltaTime = time - lastTime
+    updateGround(deltaTime,speedScale)
+    updateCharacter(deltaTime,speedScale)
     updateObstacle(deltaTime,speedScale)
+    updateSpeedScale(deltaTime)
+    
     updateScore(deltaTime)
 
     lastTime = time

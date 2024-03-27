@@ -5,9 +5,11 @@
 
 body {
     margin: 0;
-    padding: 0;
     display: flex;
-    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; 
 }
 
 .home-page { 
@@ -64,16 +66,7 @@ body {
     
 }
 
-#game-stage { 
-    overflow: hidden;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width:100%;
-    height:300px;
-    
-}
+
 
 .score { 
     position: absolute;
@@ -94,19 +87,29 @@ body {
     display: none;
 }
 
-.ground { 
+.ground {
+    --left : 0;
     position: absolute;
-   width : 300%;    
-    bottom: 0;
-    --left:0; 
-    left:calc(var(--left) * 1%);
+    width : 300%;
+    bottom : 0;
+    left: calc(var(--left) * 1%);
 }
+
 
 .obstacle{
     position: absolute;
     bottom: 0;
     left:calc(var(--left) * 1%);
-    height: 20%;
+    height: 30%;
+}
+
+
+#game-stage { 
+    overflow: hidden;
+    position: relative;
+    width:100%;
+    height:300px;
+    
 }
 
 .game-body {
