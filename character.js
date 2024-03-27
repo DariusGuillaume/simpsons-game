@@ -1,7 +1,7 @@
 import { getCustomProperty, incrementCustomProperty, setCustomProperty } from "./customProperty.js"
 
 const characterElement = document.querySelector("[data-character]")
-const JUMPSPEED = .45
+const JUMPSPEED = 1.32
 const GRAVITY = .015
 const CHARACTER_FRAME_COUNT =2
 const FRAME_TIME = 100

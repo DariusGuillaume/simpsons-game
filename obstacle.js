@@ -1,9 +1,9 @@
 import { setCustomProperty, incrementCustomProperty, getCustomProperty } from "./customProperty.js";
 
-const SPEED = .05;
-const OBSTACLE_TIME_MIN = 500;
-const OBSTACLE_TIME_MAX = 2000;
-const gameElement = document.querySelector('[data-ground]');
+const SPEED = .05
+const OBSTACLE_TIME_MIN = 500
+const OBSTACLE_TIME_MAX = 2000
+const gameElement = document.querySelector('[data-game]')
 
 
 let nextObstacleTime 

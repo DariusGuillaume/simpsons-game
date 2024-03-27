@@ -100,7 +100,7 @@ body {
     position: absolute;
     bottom: 0;
     left:calc(var(--left) * 1%);
-    height: 30%;
+    height: 15%;
 }
 
 
